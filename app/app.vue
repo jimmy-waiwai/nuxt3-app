@@ -4,6 +4,9 @@
 
 <template>
   <div>
+    <!-- NuxtRouteAnnouncer スクリーンリーダーなどの支援技術(assistive technologies)を利用しているユーザにページタイトルの通知を行うことでアクセシビリティを向上させることを目的としたコンポーネント -->
+    <NuxtRouteAnnouncer />
+    <!-- <NuxtWelcome /> -->
     <Html lang="ja" />
     <NuxtLayout>
       <NuxtPage />
