@@ -56,7 +56,6 @@
                 <NuxtLink to="/takarazuka/actress/" class="text-pink-800 block mb-2 hover:underline">ACTRESS</NuxtLink>
               </nav>
             </div>
-            
           </div>
           <div class="w-full bg-pink-700 p-4 text-center">
             <p class="text-white">このＨＰで書かれた文章の無断転載を禁じます。 Copyright &copy; 2005-2018 JIMMY. All Rights Reserved.</p>

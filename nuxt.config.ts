@@ -2,7 +2,10 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  //css: ['/assets/css/style.css'],
+  ssr:true,
+  modules: ['@nuxtjs/tailwindcss'],
+  //assets内の有効化したcssファイルは、全ページで有効化
+  css: ['~/assets/css/style.css'],
   plugins: ['~/plugins/fontawesome.js'],
 
   app: {
@@ -12,9 +15,13 @@ export default defineNuxtConfig({
       meta: [{ name: 'description', content: 'Nuxt 3 for beginners' }],
       // link: [{ rel: 'icon', href: '/icon.png' }],
     },
+    baseURL: '/nuxt3-app/',
   },
 
-  modules: ['@nuxtjs/tailwindcss'],
+  generate: {
+    dir: 'docs'
+  },
 
-  ssr:false,
+  
+
 });
