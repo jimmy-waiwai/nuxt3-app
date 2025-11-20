@@ -41,6 +41,8 @@
             </nav>
             <button class="lg:hidden" @click="hamMenuOpen()">
               <font-awesome-icon icon="bars" class="text-white font-bold text-3xl lg:text-4xl" />
+              <font-awesome-icon icon="fa-solid fa-xmark" class="text-red-500" />
+              <font-awesome-icon icon="fa-solid fa-bars" class="text-red-500" />
             </button>
           </div>
           <div>
