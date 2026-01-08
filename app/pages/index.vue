@@ -1,69 +1,113 @@
 <script setup>
+  const bar = ref("bar-close")
+  function barOpen(toggle) {
+    bar.value = toggle
+  }
 
 </script>
 <template>
-  <div class="w-full text-center">
-    <div id="header">
-      <h1 class="text-5xl">Welcome ! to waiwai.ciao.jp</h1>
-      <p>waiwai.ciao.jp より移転しました。JIMMYのホームページです。</p>
-    </div>
-    <div id="menu">
-      <nav class="flex justify-center">
-        <NuxtLink to="#header" class="w-1/5 p-4 border m-2">Top</NuxtLink>
-        <NuxtLink to="#archive" class="w-1/5 p-4 border m-2">Archive</NuxtLink>
-        <NuxtLink to="https://google.com" target="_blank" class="w-1/5 p-4 border m-2">Google</NuxtLink>
-        <!-- <NuxtLink :to="{ name: 'users-list' }">User List</NuxtLink>
-        <NuxtLink to="/posts">Post List</NuxtLink> -->
-      </nav>
-    </div>
-    
-    <div id="archive">
-      <p>過去の JIMMY の WEB SITE を保存しています。</p>
-      <div class="flex justify-center flex-wrap">
-        <div class="w-1/3 m-4">
-          <NuxtLink to="/takarazuka/">
-            <img src="/images/takaraimage.jpg" alt="WAIWAI TAKARAZUKA">
-            <h2><img src="/images/logota.png" alt="WAIWAI TAKARAZUKA" class="size-[30px] inline m-2">WAIWAI TAKARAZUKA</h2>
-            <p>掲示板を閉じてからのJIMMYのブログです。</p>
-          </NuxtLink>
+  <div class="relative">
+    <BackAni />
+    <div class="absolute top-0 left-0 overflow-scroll">
+      <div class="flex flex-wrap items-center justify-center w-full h-screen text-center relative">
+        <div class="w-full pt-[25vh]" id="top">
+          <div id="header" class="mb-[8vh] sm:mb-[10vh]">
+            <h1 class="w-full text-3xl sm:text-5xl font-normal">JIMMY's WEB SITE</h1>
+            <p class="w-full mt-6">waiwai.ciao.jp より移転しました。<br class="inline sm:hidden">JIMMYのホームページです。</p>
+          </div>
+          <nav id="menu">
+            <ul class="flex flex-wrap justify-center w-full">
+              <li class="p-4 border border-black m-2 w-2xs sm:w-1/5"><a href="#top"><span class="text-2xl block font-semibold">Top</span><span class="block text-sm">トップ</span></a></li>
+              <li class="p-4 border border-black m-2 w-2xs sm:w-1/5"><a href="#archive"><span class="text-2xl block font-semibold">Archive</span><span class="block text-sm">過去のページ</span></a></li>
+              <!-- <li class="p-4 border m-2 w-2xs sm:w-1/5"><span class="text-2xl block font-semibold">SNS</span><span class="block text-sm">投稿</span></li>
+              <li class="p-4 border m-2 w-2xs sm:w-1/5"><span class="text-2xl block font-semibold">Map</span><span class="block text-sm">地図</span></li>
+              <li class="p-4 border m-2 w-2xs sm:w-1/5"><span class="text-2xl block font-semibold">Schedule</span><span class="block text-sm">スケジュール</span></li>
+              <li class="p-4 border m-2 w-2xs sm:w-1/5"><span class="text-2xl block font-semibold">Graph</span><span class="block text-sm">グラフ</span></li>
+              <li class="p-4 border m-2 w-2xs sm:w-1/5"><span class="text-2xl block font-semibold">Weather</span><span class="block text-sm">天気</span></li> -->
+            </ul>
+          </nav>
         </div>
-        <div class="w-1/3 m-4">
-          <NuxtLink to="/waiwai/">
-            <img src="/images/waiwai_image.jpg" alt="WAIWAI TAKARAZUKA">
-            <h2><img src="/images/logota.png" alt="WAIWAI TAKARAZUKA" class="size-[30px] inline m-2">WAIWAI TAKARAZUKA</h2>
-            <p>宝塚ファンによる会員制掲示板を運営していました。</p>
-          </NuxtLink>
+
+        <div id="footer" class="w-full pt-[12vh] sm:pt-[35vh]">
+          <p>Copyright © JIMMY. All Rights Reserved.</p>
         </div>
-        <div class="w-1/3 m-4">
-          <NuxtLink to="/jimmy/">
-            <img src="/images/jimmy_image.jpg" alt="JIMMY's Homepage">
-            <h2><img src="/images/logota.png" alt="WAIWAI TAKARAZUKA" class="size-[30px] inline m-2">JIMMY's Homepage</h2>
-            <p>JIMMYの過去の公演評などの記事をまとめました。</p>
-          </NuxtLink>
-        </div>
-        <div class="w-1/3 m-4">
-          <NuxtLink to="/design/">
-            <img src="/images/designimage.jpg" alt="WAIWAI WEB &amp; DTP">
-            <h2><img src="/images/logode.png" alt="WAIWAI WEB &amp; DTP" class="size-[30px] inline m-2">WAIWAI WEB &amp; DTP</h2>
-            <p>WEB &amp; DTPデザイナーであるJIMMYのお仕事ページです。</p>
-          </NuxtLink>
-        </div>
-        <div class="w-1/3 m-4">
-          <NuxtLink to="/everyday/">
-            <img src="/images/everyimage.jpg" alt="WAIWAI EVERY DAY">
-            <h2><img src="/images/logoev.png" alt="WAIWAI EVERY DAY" class="size-[30px] inline m-2">WAIWAI EVERY DAY</h2>
-            <p>JIMMYの日常の様子をアップしています。</p>
-          </NuxtLink>
+        
+        <div id="archive" class="w-full sm:pt-[12vh] pt-[25vh]">
+          <h2 class="text-4xl mb-4 font-medium">Archive</h2>
+          <p>過去の JIMMY の WEB SITE を保存しています。</p>
+          <div class="flex justify-center flex-wrap px-4 sm:px-16 py-4 sm:px-16 w-full">
+            <div class="w-full sm:w-1/3 p-6">
+              <a href="takarazuka/" class="">
+                <img src="/images/takaraimage.jpg" alt="WAIWAI TAKARAZUKA">
+                <h2 class="text-xl font-semibold"><img src="/images/logota.png" alt="WAIWAI TAKARAZUKA" class="size-[30px] inline m-2">WAIWAI TAKARAZUKA</h2>
+                <p>掲示板を閉じてからのJIMMYのブログです。</p>
+              </a>
+            </div>
+            <div class="w-full sm:w-1/3 p-6">
+              <a href="waiwai/" class="">
+                <img src="/images/waiwai_image.jpg" alt="WAIWAI TAKARAZUKA">
+                <h2 class="text-xl font-semibold"><img src="/images/logota.png" alt="WAIWAI TAKARAZUKA" class="size-[30px] inline m-2">WAIWAI TAKARAZUKA</h2>
+                <p>宝塚ファンによる会員制掲示板を運営していました。</p>
+              </a>
+            </div>
+            <div class="w-full sm:w-1/3 p-6">
+              <a href="jimmy/" class="">
+                <img src="/images/jimmy_image.jpg" alt="JIMMY&#39;s Homepage">
+                <h2 class="text-xl font-semibold"><img src="/images/logota.png" alt="WAIWAI TAKARAZUKA" class="size-[30px] inline m-2">JIMMY&#39;s Homepage</h2>
+                <p>JIMMYの過去の公演評などの記事をまとめました。</p>
+              </a>
+            </div>
+            <div class="w-full sm:w-1/3 p-6">
+              <a href="design/" class="">
+                <img src="/images/designimage.jpg" alt="WAIWAI WEB &amp; DTP">
+                <h2 class="text-xl font-semibold"><img src="/images/logode.png" alt="WAIWAI WEB &amp; DTP" class="size-[30px] inline m-2">WAIWAI WEB &amp; DTP</h2>
+                <p>WEB &amp; DTPデザイナーであるJIMMYのお仕事ページです。</p>
+              </a>
+            </div>
+            <div class="w-full sm:w-1/3 p-6"><a href="everyday/" class="">
+              <img src="/images/everyimage.jpg" alt="WAIWAI EVERY DAY">
+                <h2 class="text-xl font-semibold"><img src="/images/logoev.png" alt="WAIWAI EVERY DAY" class="size-[30px] inline m-2">WAIWAI EVERY DAY</h2>
+                <p>JIMMYの日常の様子をアップしています。</p>
+              </a>
+            </div>
+          </div>
         </div>
 
       </div>
       
-	  </div>
-
-    <div id="footer">
-      <p>Copyright &copy; JIMMY. All Rights Reserved.</p>
     </div>
-
+    <div class="absolute w-full">
+      <div class="relative max-w-[1200px] m-auto">
+        <div class="absolute text-5xl top-4 right-4">
+          <font-awesome-icon icon="fa-solid fa-bars" :class="[{ ['!hidden']: bar === 'bar-open' },{ ['block']: bar === 'bar-close' }]" @click="barOpen('bar-open')" />
+          <font-awesome-icon icon="fa-solid fa-xmark" :class="[{ ['block']: bar === 'bar-open' },{ ['!hidden']: bar === 'bar-close' }]" @click="barOpen('bar-close')" />
+        </div>
+        <div class="absolute" :class="[{ ['bg-[rgb(255,255,200,1.0)] w-xs p-8 z-10 rounded-xl shadow-md']: bar === 'bar-open' },{ ['hidden']: bar === 'bar-close' }]">
+          <div id="header mb-[2vh]">
+            <h1 class="w-full text-2xl font-semibold">JIMMY's WEB SITE</h1>
+          </div>
+          <nav id="menu">
+            <ul class="flex flex-wrap justify-center w-full">
+              <li class="p-4 border border-black m-2 w-full"><a href="#top"><span class="text-2xl block font-semibold">Top</span><span class="block text-sm">トップ</span></a></li>
+              <li class="p-4 border border-black m-2 w-full"><a href="#archive"><span class="text-2xl block font-semibold">Archive</span><span class="block text-sm">過去のページ</span></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
     
   </div>
 </template>
+
+<style scoped>
+  .page-enter-active,
+  .page-leave-active {
+    transition: all .4s
+  }
+
+  .page-enter-from,
+  .page-leave-to {
+    filter: blur(1rem);
+    opacity: 0
+  }
+</style>

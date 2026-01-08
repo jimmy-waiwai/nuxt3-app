@@ -1,17 +1,29 @@
 <script setup>
-  useHead({
-    link: [
-      {
-        rel: 'preconnect',
-        crossorigin: 'https://fonts.gstatic.com',
-        href: 'https://fonts.googleapis.com'
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Sans+JP:wght@100..900&family=Poiret+One&display=swap'
-      },
-    ]
-  })
+useHead({
+  title: "WAIWAI TAKARAZUKA",
+  meta: [
+    { name: 'description', content: 'waiwai.ciao.jp より移転しました。宝塚歌劇団の舞台の感想や話題を雑談。' },
+  ],
+  link: [
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: '/img/takarazuka/apple-touch-icon-180x180.png',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      href: '/img/takarazuka/favicon-32x32.png',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '96x96',
+      href: '/img/takarazuka/favicon-96x96.png',
+    },
+  ],
+})
   const hamMenu = ref(false)
   const hamMenuOpen = () => {
     hamMenu.value = true
@@ -79,20 +91,6 @@
 </template>
 
 <style scoped>
-  .noto-sans {
-    font-family: "Noto Sans JP", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-  .poiret-one {
-    font-family: "Poiret One", sans-serif;
-    font-weight: bold;
-  }
-  .klee-one {
-    font-family: "Klee One", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
   .hum-enter-active,
   .hum-leave-active {
     transition: all 0.3s ease-out;
