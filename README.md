@@ -1,3 +1,9 @@
+# waiwaiサイトnuxt4版作成用データ
+
+nuxt3-appでサイトを作る
+できたら、waiwai-testでアップして確認
+OKならそのままwaiwaiに公開
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
