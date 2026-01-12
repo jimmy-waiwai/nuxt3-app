@@ -23,5 +23,9 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
     },
+    baseURL: '/nuxt3-app/',
+    nitro: {
+      preset: 'github_pages'
+    }
   },
 })
